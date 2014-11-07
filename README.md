@@ -52,8 +52,8 @@ Each specifier is a member of a `Specifier Group`.
     {
         "sg": "SG001",
         "sid": "S503"
-        "type": "Specify if",
-        "notes": "Only used after 1 year"
+        "type": "Specify current severity",
+        "value": "Mild"
     }
 
 
