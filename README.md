@@ -11,6 +11,7 @@ There are two types of DSM records. The first is a record containing all of the 
         "section": "",
         "subsection": "",
         "name": "",
+        "subname": "",
         "specify": [
             {
                 "specify_id": "s14",
@@ -50,8 +51,8 @@ Each specifier is a member of a `Specifier Group`.
 #### Specifier JSON
 
     {
-        "sg": "SG001",
-        "sid": "S503"
+        "sg": "SG002",
+        "specify_id": "S503"
         "type": "Specify current severity",
         "value": "Mild"
     }
