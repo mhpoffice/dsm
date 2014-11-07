@@ -55,14 +55,14 @@ The ICD9/10 arrays define which codes are used if the exact combination of speci
             "subname": "",
             "specify": [
                 {
-                    "specify_id": "s14",
+                    "specify_id": "F14",
                     "type": "specify if",
                     "value": "First episode"
                 },
                 {
-                    "specify_id": "s14",
-                    "type": "specify if",
-                    "value": "First episode"
+                    "specify_id": "F25",
+                    "type": "specify curent severity",
+                    "value": "Severe"
                 }
             ]
         
@@ -87,8 +87,8 @@ Also, the ICD9 and ICD10 sections are optional, as you can create those as well.
             "dsm_code": "D5011",
             "dsm_revision": "DSM5",
             "specifiers": [
-                "S1234",
-                "S4321"
+                "F1234",
+                "F4321"
             ]
         },
         "ICD9": {
@@ -99,9 +99,18 @@ Also, the ICD9 and ICD10 sections are optional, as you can create those as well.
         }
     }
     
-Here is an example of an ultra-minimal representation of a code:
 
-    {"@dsm": "mdiagnosis","DSM5": {"dsm_code": "D5011","dsm_revision": "DSM5","specifiers": ["S1234","S4321"]}}
+#### Examples
+
+For developers, here is an example of an ultra-minimal representation of a code:
+
+    {"@dsm": "mdiagnosis","DSM5": {"dsm_code": "D5011","dsm_revision": "DSM5","specifiers": ["F1234","F4321"]}}
+    
+For clinicians, you should prevent this as one of these formats:
+
+* D5011-F1234-F4321
+* D5011-F1234-F4321 "Speech Sound Disorder"
+* D5011-F1234-F4321 "Speech Sound Disorder: First Episode, Severe"
 
 
 ### Specifiers
@@ -124,7 +133,7 @@ Each specifier is a member of a `Specifier Group`.
     {
         "sg": "SG002",
         "dsm_revision": "DSM5",
-        "specify_id": "S503"
+        "specify_id": "F503"
         "type": "Specify current severity",
         "value": "Mild"
     }
