@@ -4,6 +4,37 @@ There are two types of DSM records. The first is a record containing all of the 
 
 ### DSM Codepoint JSON
 
+The ICD9/10 arrays define which codes are used if the exact combination of specifiers are present. If a non-exact match occurs, the instance with `specifiers` set to `null` will be used.
+
+    {
+        "DSM5": {
+            "section": "",
+            "subsection": "",
+            "name": "",
+            "subname": "",
+            "specifier_groups": [
+                "SG001",
+                "SG004"
+            ]
+        },
+        "ICD9": [
+            {
+                "code_2014": "319.00",
+                "specifiers": null
+            },
+            {
+                "code_2014": "319.01",
+                "specifiers": ["S0032", "S0045"]
+            }
+        ],
+        "ICD10": [
+            {
+                "code_2014": "F70",
+                "specifiers": null
+            }
+        ]
+    }
+
 ### DSM Diagnosis JSON
 
     {
