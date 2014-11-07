@@ -7,29 +7,31 @@ There are two types of DSM records. The first is a record containing all of the 
 ### DSM Diagnosis JSON
 
     {
-      "DSM5": {
-        "section": "",
-        "subsection": "",
-        "name": "",
-        "subname": "",
-        "specify": [
-            {
-                "specify_id": "s14",
-                "type": "specify if",
-                "value": "First episode"
-            },
-            {
-                "specify_id": "s14",
-                "type": "specify if",
-                "value": "First episode"
-            }
-        ]
+        "DSM5": {
+            "section": "",
+            "subsection": "",
+            "name": "",
+            "subname": "",
+            "specify": [
+                {
+                    "specify_id": "s14",
+                    "type": "specify if",
+                    "value": "First episode"
+                },
+                {
+                    "specify_id": "s14",
+                    "type": "specify if",
+                    "value": "First episode"
+                }
+            ]
         
-      },
-      "ICD9": {
-      },
-      "ICD10": {
-      }
+        },
+        "ICD9": {
+            "code_2014": "319.00"
+        },
+        "ICD10": {
+            "code_2014": "F70"
+        }
     }
 
 
