@@ -7,15 +7,21 @@ There are two types of DSM records. The first is a record containing all of the 
 The ICD9/10 arrays define which codes are used if the exact combination of specifiers are present. If a non-exact match occurs, the instance with `specifiers` set to `null` will be used.
 
     {
+        "@dsm": "codepoint",
         "DSM5": {
+            "dsm_code": "D5011",
+            "dsm_revision": "DSM5",
             "section": "",
             "subsection": "",
+            "subsubsection": "",
             "name": "",
             "subname": "",
             "specifier_groups": [
                 "SG001",
                 "SG004"
-            ]
+            ],
+            "book_page": "45",
+            "notes": "Any relevant diagnostic notes"
         },
         "ICD9": [
             {
@@ -38,9 +44,13 @@ The ICD9/10 arrays define which codes are used if the exact combination of speci
 ### DSM Diagnosis JSON
 
     {
+        "@dsm": "diagnosis",
         "DSM5": {
+            "dsm_code": "D5011",
+            "dsm_revision": "DSM5",
             "section": "",
             "subsection": "",
+            "subsubsection": "",
             "name": "",
             "subname": "",
             "specify": [
@@ -65,6 +75,34 @@ The ICD9/10 arrays define which codes are used if the exact combination of speci
         }
     }
 
+### DSM Diagnosis JSON
+
+For efficient storage in a database, you can store a minimal representation. Only do this if you can expand it with a local/cached database of the full code information.
+
+Also, the ICD9 and ICD10 sections are optional, as you can create those as well.
+
+    {
+        "@dsm": "mdiagnosis",
+        "DSM5": {
+            "dsm_code": "D5011",
+            "dsm_revision": "DSM5",
+            "specifiers": [
+                "S1234",
+                "S4321"
+            ]
+        },
+        "ICD9": {
+            "code_2014": "319.00"
+        },
+        "ICD10": {
+            "code_2014": "F70"
+        }
+    }
+    
+Here is an example of an ultra-minimal representation of a code:
+
+    {"@dsm": "mdiagnosis","DSM5": {"dsm_code": "D5011","dsm_revision": "DSM5","specifiers": ["S1234","S4321"]}}
+
 
 ### Specifiers
 
@@ -78,13 +116,14 @@ Each specifier is a member of a `Specifier Group`.
         "type": "Specify if",
         "notes": "Only used after 1 year",
         "sg": "SG001",
-        "dsm_version": "DSM5"
+        "dsm_revision": "DSM5"
     }
 
 #### Specifier JSON
 
     {
         "sg": "SG002",
+        "dsm_revision": "DSM5",
         "specify_id": "S503"
         "type": "Specify current severity",
         "value": "Mild"
